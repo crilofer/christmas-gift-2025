@@ -109,12 +109,15 @@ body::before {
     animation: fadeIn 0.8s ease-out;
 }
 
-/* Permitir scroll solo en pantalla de juego si es necesario */
-#game-screen.active {
+/* Permitir scroll en pantallas de juego y revelación */
+#game-screen.active,
+#reveal-screen.active {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
 }
 
 @keyframes fadeIn {
@@ -231,6 +234,7 @@ body::before {
     font-size: 1rem;
     padding: 0.8rem 2rem;
     margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 /* ========================================
