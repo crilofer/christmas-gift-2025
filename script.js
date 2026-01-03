@@ -92,11 +92,23 @@ const elements = {
 document.addEventListener('DOMContentLoaded', () => {
     createStars();
     setupEventListeners();
+    preloadImages(); // Precargar imágenes al inicio
 });
 
 function setupEventListeners() {
     elements.startBtn.addEventListener('click', startGame);
     elements.replayBtn.addEventListener('click', restartGame);
+}
+
+// Precargar todas las imágenes para evitar cartas en blanco
+function preloadImages() {
+    for (let i = 1; i <= CONFIG.totalPairs; i++) {
+        const img = new Image();
+        img.src = `assets/fotos/${i}.jpg`;
+    }
+    // También precargar la imagen del regalo
+    const giftImg = new Image();
+    giftImg.src = 'assets/regalo.jpg';
 }
 
 // ========================================
@@ -228,7 +240,7 @@ function createCardElement(card, index) {
         <div class="card-face card-back">${card.backIcon}</div>
         <div class="card-face card-front">
             <img src="${card.image}" alt="Recuerdo ${card.id}" 
-                 onerror="this.parentElement.innerHTML='❤️'" loading="lazy">
+                 onerror="this.parentElement.innerHTML='❤️'">
         </div>
     `;
     
