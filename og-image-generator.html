@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de OG Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #333;
+            padding: 20px;
+        }
+        
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2d4d 40%, #2d1b4e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #fff8e7;
+        }
+        
+        /* Estrellas decorativas */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 50px 160px, #ffd700, transparent),
+                radial-gradient(2px 2px at 90px 40px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 130px 80px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 160px 120px, #ffd700, transparent),
+                radial-gradient(2px 2px at 200px 50px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 250px 90px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 300px 150px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 350px 60px, #ffd700, transparent),
+                radial-gradient(2px 2px at 400px 130px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 450px 40px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 500px 100px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 550px 170px, #ffd700, transparent),
+                radial-gradient(2px 2px at 600px 50px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 650px 120px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 700px 80px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 750px 140px, #ffd700, transparent),
+                radial-gradient(2px 2px at 800px 30px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 850px 90px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 900px 160px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 950px 70px, #ffd700, transparent),
+                radial-gradient(2px 2px at 1000px 110px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 1050px 50px, #fff8e7, transparent),
+                radial-gradient(2px 2px at 1100px 130px, #fff8e7, transparent),
+                radial-gradient(3px 3px at 1150px 80px, #ffd700, transparent);
+            opacity: 0.8;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .emoji-row {
+            font-size: 80px;
+            margin-bottom: 30px;
+            letter-spacing: 20px;
+        }
+        
+        h1 {
+            font-size: 72px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700 0%, #d4a574 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
+        }
+        
+        .subtitle {
+            font-size: 36px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .camels {
+            position: absolute;
+            bottom: 40px;
+            font-size: 50px;
+            letter-spacing: 30px;
+            opacity: 0.7;
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            color: white;
+            font-family: sans-serif;
+            font-size: 14px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 25px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="og-image">
+            <div class="stars"></div>
+            <div class="content">
+                <div class="emoji-row">👑 ⭐ 🎁 ⭐ 👑</div>
+                <h1>Silvia</h1>
+                <p class="subtitle">Los Reyes Magos han dejado algo para ti...</p>
+            </div>
+            <div class="camels">🐪 🐪 🐪</div>
+        </div>
+        
+        <div class="instructions">
+            <strong>Instrucciones:</strong><br>
+            1. Haz clic derecho en la imagen de arriba<br>
+            2. Selecciona "Inspeccionar" o presiona F12<br>
+            3. Clic derecho en el elemento .og-image → "Capture node screenshot"<br>
+            4. Guarda como <code>og-image.png</code> en la carpeta del proyecto<br>
+            <br>
+            <em>O simplemente haz una captura de pantalla del recuadro.</em>
+        </div>
+    </div>
+</body>
+</html>
+

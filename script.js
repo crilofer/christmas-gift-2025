@@ -297,16 +297,19 @@ function handleMatch(card1, card2) {
 }
 
 function handleMismatch(card1, card2) {
-    // Añadir efecto de shake
-    card1.classList.add('wrong');
-    card2.classList.add('wrong');
+    // Esperar a que termine la animación de volteo (600ms) antes de hacer shake
+    setTimeout(() => {
+        card1.classList.add('wrong');
+        card2.classList.add('wrong');
+    }, 600);
     
+    // Voltear de nuevo después del shake
     setTimeout(() => {
         card1.classList.remove('flipped', 'wrong');
         card2.classList.remove('flipped', 'wrong');
         gameState.flippedCards = [];
         gameState.isLocked = false;
-    }, CONFIG.flipDelay);
+    }, CONFIG.flipDelay + 600);
 }
 
 function updateStats() {
