@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Un Regalo Especial para Silvia ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Estrellas animadas de fondo -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Pantalla de Bienvenida -->
+    <section id="welcome-screen" class="screen active">
+        <div class="welcome-content">
+            <div class="crown-icon">👑</div>
+            <h1>Querida Silvia</h1>
+            <p class="welcome-message">Los Reyes Magos han dejado algo muy especial para ti...</p>
+            <p class="welcome-submessage">Pero primero, tendrás que resolver un pequeño desafío...</p>
+            <button id="start-btn" class="magic-btn">
+                <span>Descubrir mi regalo</span>
+                <span class="btn-star">⭐</span>
+            </button>
+        </div>
+        <div class="camels-decoration">🐪 🐪 🐪</div>
+    </section>
+
+    <!-- Pantalla del Juego -->
+    <section id="game-screen" class="screen">
+        <header class="game-header">
+            <h2>Encuentra las parejas</h2>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-icon">🎯</span>
+                    <span id="attempts">0</span> intentos
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">✨</span>
+                    <span id="pairs-found">0</span>/12 parejas
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenedor de mensajes románticos -->
+        <div id="message-overlay" class="message-overlay hidden">
+            <div class="message-content">
+                <p id="romantic-message"></p>
+            </div>
+        </div>
+
+        <!-- Tablero del Memory -->
+        <div id="memory-board" class="memory-board">
+            <!-- Las cartas se generarán con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Pantalla de Revelación -->
+    <section id="reveal-screen" class="screen">
+        <div class="reveal-content">
+            <div id="gift-box" class="gift-box">
+                <div class="gift-lid">
+                    <div class="gift-bow">🎀</div>
+                </div>
+                <div class="gift-body"></div>
+            </div>
+            <div id="gift-reveal" class="gift-reveal hidden">
+                <h2>¡Felices Reyes, gordita!</h2>
+                <div class="gift-image-container">
+                    <img id="gift-image" src="assets/regalo.jpg" alt="Tu regalo">
+                </div>
+                <p class="final-message" id="final-message">
+                    Vale por la <strong class="highlight-gold">pulsera de oro</strong> con <strong class="highlight-gold">medallita</strong> que tanto te gusta. 
+                    Te quiero muchísimo. ♥️
+                </p>
+                <button id="replay-btn" class="magic-btn secondary">
+                    <span>Volver a jugar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Canvas para confeti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
