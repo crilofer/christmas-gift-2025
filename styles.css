@@ -184,11 +184,12 @@ body::before {
     opacity: 0.6;
     letter-spacing: 1rem;
     animation: walkCamels 20s linear infinite;
+    animation-delay: -10s; /* Empezar a mitad del recorrido para que sean visibles */
 }
 
 @keyframes walkCamels {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100vw); }
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
 }
 
 /* ========================================

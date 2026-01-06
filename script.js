@@ -1,6 +1,6 @@
 /* ========================================
    MEMORIA DE REYES MAGOS - LÓGICA DEL JUEGO
-   Un regalo especial para Silvia
+   Un regalo especial para Papá y Mamá
    ======================================== */
 
 // ========================================
@@ -10,8 +10,6 @@
 const CONFIG = {
     totalPairs: 12,
     flipDelay: 1000,
-    messageInterval: 2, // Mostrar mensaje cada X parejas
-    messageDuration: 4000,
 };
 
 // Iconos temáticos para el reverso de las cartas
@@ -42,15 +40,6 @@ const CARD_BACKS = [
     '🌿', // Mirra/Incienso
 ];
 
-// Mensajes románticos que aparecen durante el juego
-const ROMANTIC_MESSAGES = [
-    "Este 2025 nos ha traido muchas alegrías y risas...",
-    "Pero lo que más nos ha gustado es viajar...",
-    "Y es que no puedo tener mejor compañera de vida que tú",
-    "Gracias por multiplicarme. No sería nada sin ti",
-    "Sigamos siendo nosotros, y que nunca dejemos de ser belus...",
-];
-
 // ========================================
 // ESTADO DEL JUEGO
 // ========================================
@@ -61,7 +50,6 @@ let gameState = {
     matchedPairs: 0,
     attempts: 0,
     isLocked: false,
-    messageShown: 0,
 };
 
 // ========================================
@@ -77,8 +65,6 @@ const elements = {
     memoryBoard: document.getElementById('memory-board'),
     attemptsDisplay: document.getElementById('attempts'),
     pairsDisplay: document.getElementById('pairs-found'),
-    messageOverlay: document.getElementById('message-overlay'),
-    romanticMessage: document.getElementById('romantic-message'),
     giftBox: document.getElementById('gift-box'),
     giftReveal: document.getElementById('gift-reveal'),
     starsContainer: document.getElementById('stars'),
@@ -108,7 +94,7 @@ function preloadImages() {
     }
     // También precargar la imagen del regalo
     const giftImg = new Image();
-    giftImg.src = 'assets/regalo.jpg';
+    giftImg.src = 'assets/regalo.png';
 }
 
 // ========================================
@@ -177,7 +163,6 @@ function resetGameState() {
         matchedPairs: 0,
         attempts: 0,
         isLocked: false,
-        messageShown: 0,
     };
     updateStats();
     
@@ -294,12 +279,6 @@ function handleMatch(card1, card2) {
     gameState.flippedCards = [];
     gameState.isLocked = false;
     
-    // Comprobar si mostrar mensaje romántico
-    if (gameState.matchedPairs % CONFIG.messageInterval === 0 && 
-        gameState.matchedPairs < CONFIG.totalPairs) {
-        showRomanticMessage();
-    }
-    
     // Comprobar si el juego ha terminado
     if (gameState.matchedPairs === CONFIG.totalPairs) {
         setTimeout(() => {
@@ -327,24 +306,6 @@ function handleMismatch(card1, card2) {
 function updateStats() {
     elements.attemptsDisplay.textContent = gameState.attempts;
     elements.pairsDisplay.textContent = gameState.matchedPairs;
-}
-
-// ========================================
-// SISTEMA DE MENSAJES
-// ========================================
-
-function showRomanticMessage() {
-    const messageIndex = gameState.messageShown % ROMANTIC_MESSAGES.length;
-    const message = ROMANTIC_MESSAGES[messageIndex];
-    
-    elements.romanticMessage.textContent = message;
-    elements.messageOverlay.classList.remove('hidden');
-    
-    gameState.messageShown++;
-    
-    setTimeout(() => {
-        elements.messageOverlay.classList.add('hidden');
-    }, CONFIG.messageDuration);
 }
 
 // ========================================
